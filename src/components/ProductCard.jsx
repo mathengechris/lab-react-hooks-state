@@ -1,7 +1,14 @@
 import React from 'react'
 import styles from '../styles/ProductCard.module.css'
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cart, setCart }) => {
+
+  const addToCart=()=>{
+    setCart((prevItems)=>{
+      return [...prevItems, product]
+    
+    })
+  }
   return (
     <div
       className={`${styles.card} ${!product.inStock ? styles.outOfStock : ''}`}
